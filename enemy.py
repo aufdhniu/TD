@@ -38,7 +38,7 @@ class Enemy(pg.sprite.Sprite):
     
     def load_images(self):
         animation_list = []
-        img_dir = "assets/images/enemy/enemy_1"
+        img_dir = "assets/images/enemy/enemy_10"
         for filename in sorted(os.listdir(img_dir)):
             img_path=os.path.join(img_dir,filename)
             animation_list.append(pg.image.load(img_path))

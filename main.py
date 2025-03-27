@@ -1,6 +1,6 @@
 import pygame as pg
 import constants as c
-
+import time
 from enemy import Enemy
 from world import World
 from turret import Turret
@@ -20,7 +20,7 @@ pg.display.set_caption("Tower Defence")
 #load images
 map_image = pg.image.load("levels/level1.png")
 cursor_turret = pg.image.load("assets/images/turrets/cursor_turret.png").convert_alpha()
-enemy_image = pg.image.load("assets/images/enemy/enemy_1/0_Monster_Walking_000.png").convert_alpha()
+enemy_image = pg.image.load("assets/images/enemy/enemy_3/move_000.png").convert_alpha()
 
 #create groups
 enemy_group = pg.sprite.Group()
@@ -40,11 +40,13 @@ def create_turret(mouse_pos):
         world.map_not_avaible.append((mouse_pos[0],mouse_pos[1]))
         turret = Turret(cursor_turret,mouse_pos)
         turret_group.add(turret)
-        print(turret_group)
+
 
 world = World(map_image)
 enemy = Enemy(world.waypoints, enemy_image)
 enemy_group.add(enemy)
+
+print(enemy_group)
 pos_list = []
 
 #game loop
@@ -63,6 +65,7 @@ while run:
     screen.fill("grey100")
     world.draw(screen)
     enemy_group.draw(screen)
+    
     turret_group.draw(screen)
     
     #draw enemy path
