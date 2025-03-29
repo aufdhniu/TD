@@ -81,5 +81,6 @@ class Enemy(pg.sprite.Sprite):
         self.image = pg.transform.scale(self.orginal_image,(150,100))
         self.rect = self.image.get_rect()
         self.rect.center = self.pos
-        
+
+#1
     
